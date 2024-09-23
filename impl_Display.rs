@@ -1,5 +1,6 @@
 // https://doc.rust-lang.org/std/fmt/trait.Display.html
 // Learn Rust in a Month of Lunches; page 134 
+// to compare to Go trait = interface and the trait implements the methods as an inteface would
 
 #[derive(Debug)]
 struct Cat {
