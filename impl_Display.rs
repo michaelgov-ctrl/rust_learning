@@ -23,7 +23,7 @@ fn main() {
         age: 4,
     };
 
-    // by implementing std::fmt::Display on a type it automatically has the to_string() trait.
+    // by implementing std::fmt::Display on a type it automatically has the ToString trait which has the to_string() method.
     print_excitedly(mr_mantle.to_string());
     println!("Mr. Mantle's String is {} letters long.", mr_mantle.to_string().chars().count())
 }
