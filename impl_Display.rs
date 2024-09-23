@@ -1,6 +1,7 @@
 // https://doc.rust-lang.org/std/fmt/trait.Display.html
 // Learn Rust in a Month of Lunches; page 134 
 
+#[derive(Debug)]
 struct Cat {
     name: String,
     age: u8,
@@ -12,11 +13,17 @@ impl std::fmt::Display for Cat {
     }
 }
 
+fn print_excitedly(input: String) {
+    println!("{input}!!!!!!!");
+}
+
 fn main() {
     let mr_mantle = Cat {
         name: "Reggie Mantle".to_string(),
         age: 4,
     };
 
-    println!("{mr_mantle}");
+    // by implementing std::fmt::Display on a type it automatically has the to_string() trait.
+    print_excitedly(mr_mantle.to_string());
+    println!("Mr. Mantle's String is {} letters long.", mr_mantle.to_string().chars().count())
 }
