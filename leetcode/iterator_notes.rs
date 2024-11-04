@@ -30,3 +30,32 @@ impl Solution {
             .0
     }
 }
+
+// https://leetcode.com/problems/first-letter-to-appear-twice/description/
+
+use std::collections::HashSet;
+
+impl Solution {
+    pub fn repeated_character(s: String) -> char {
+        let mut acc: HashSet<char> = HashSet::new();
+        s.chars().skip_while(|&c| acc.insert(c)).next().unwrap()
+    }
+}
+    // with a for loop this could look like this
+use std::collections::HashSet;
+
+impl Solution {
+    pub fn repeated_character(s: String) -> char {
+        let mut acc = HashSet::new();
+
+        for c in s.chars() {
+            if acc.contains(&c) {
+                return c
+            }
+            
+            acc.insert(c);
+        }
+
+        return 'f'
+    }
+}
