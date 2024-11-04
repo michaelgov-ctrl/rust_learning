@@ -11,3 +11,22 @@ impl Solution {
         }) == 0
     }
 }
+
+
+// https://leetcode.com/problems/find-closest-number-to-zero/description/
+
+impl Solution {
+    pub fn find_closest_number(nums: Vec<i32>) -> i32 {
+        nums.iter()
+            .fold((i32::MIN, i32::MAX), |(res, min), &x| {
+                if x.abs() < min {
+                    (x, x.abs())
+                } else if x.abs() == min {
+                    (res.max(x), min)
+                } else {
+                    (res, min)
+                }
+            })
+            .0
+    }
+}
