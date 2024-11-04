@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/check-balanced-string/submissions/1442388220/
+// https://leetcode.com/problems/check-balanced-string/description/
 
 impl Solution {
     pub fn is_balanced(num: String) -> bool {
