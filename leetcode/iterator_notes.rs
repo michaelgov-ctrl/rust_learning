@@ -59,3 +59,21 @@ impl Solution {
         return 'f'
     }
 }
+
+// https://leetcode.com/problems/hash-divided-string/
+
+impl Solution {
+    pub fn string_hash(s: String, k: i32) -> String {
+        s.chars()
+            .collect::<Vec<char>>()
+            .chunks(k as usize)
+            .map(|c| hash(c))
+            .collect::<String>()
+    }
+}
+
+fn hash(x: &[char]) -> char {
+    (x.iter().fold(0, |acc, &c| (acc + c as u8 - 'a' as u8) % 26 ) + 'a' as u8) as char
+}
+
+// 
