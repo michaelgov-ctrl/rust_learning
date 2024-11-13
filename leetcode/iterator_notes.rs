@@ -76,4 +76,11 @@ fn hash(x: &[char]) -> char {
     (x.iter().fold(0, |acc, &c| (acc + c as u8 - 'a' as u8) % 26 ) + 'a' as u8) as char
 }
 
-// 
+// https://rust-lang.github.io/rfcs/2351-is-sorted.html
+// is_sorted
+
+fn main() {
+    let v = vec![0];
+    let is_sorted = (0..v.len()-1).all(|i| v[i] <= v[i+1]);
+    println!("{is_sorted}")
+}
