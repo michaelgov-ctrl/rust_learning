@@ -84,3 +84,22 @@ fn main() {
     let is_sorted = (0..v.len()-1).all(|i| v[i] <= v[i+1]);
     println!("{is_sorted}")
 }
+
+// https://leetcode.com/problems/maximum-ascending-subarray-sum/description/
+// track running total with fold
+
+impl Solution {
+    pub fn max_ascending_sum(nums: Vec<i32>) -> i32 {
+        let a = nums[0];
+        let r = nums[1..].into_iter()
+            .fold((a, a, a), |(max_sum, temp_sum, a),&x| {
+                if a < x {
+                    (max_sum, temp_sum+x, x)
+                } else {
+                    (max_sum.max(temp_sum), x, x)
+                }
+            });
+
+        r.0.max(r.1)
+    }
+}
